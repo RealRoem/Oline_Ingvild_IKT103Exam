@@ -18,9 +18,3 @@ int main()
     return 0;
 }
 
-<<<<<<< HEAD
-// heisann sveisann
-//heihei
-//heieheiheie
-=======
->>>>>>> 5faf4cf2c1f7af11d50ab1705d7012bbe0d9902a
