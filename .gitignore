@@ -1,0 +1,16 @@
+# Byggfiler
+cmake-build-*/
+
+# CLion config
+.idea/
+
+# CMake genererte filer
+CMakeFiles/
+CMakeCache.txt
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# Brukergenerert
+*.log
+*.swp
