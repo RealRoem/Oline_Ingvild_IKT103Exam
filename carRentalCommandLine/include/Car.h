@@ -12,11 +12,11 @@ public:
 
     int customerId;
 
-    void addCar();
-    void editCar();
-    void removeCar();
-    void assignCarToCustomer();
-    void unassignCarToCustomer();
+    static void addCar();
+    static void editCar();
+    static void removeCar();
+    static void assignCarToCustomer();
+    static void unassignCarToCustomer();
 };
 
 #endif //CAR_H
