@@ -1,8 +1,20 @@
-//
-// Created by oline on 30.04.2025.
-//
-
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
+#include <string>
+
+
+class Customer {
+public:
+    int customerId;
+    std::string customerName;
+    std::string dateofBirth;
+    std::string mail;
+    std::string phonenumber;
+
+    void addCustomer();
+    void editCustomer();
+    void deleteCustomer();
+
+};
 
 #endif //CUSTOMER_H
