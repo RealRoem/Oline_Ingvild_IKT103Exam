@@ -2,5 +2,8 @@
   "name" : "carrentalcommandline",
   "version-string" : "1.0.0",
   "builtin-baseline" : "d6995a0cf3cafda5e9e52749fad075dd62bfd90c",
-  "dependencies" : [ ]
+  "dependencies" : [ {
+    "name" : "sqlite3",
+    "version>=" : "3.49.1"
+  } ]
 }
