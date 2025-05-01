@@ -60,10 +60,16 @@ int main()
           Car::unassignCarToCustomer(carId);
           std::cout << "Car removed" << std::endl;
           break; }
-         case 9: { // Show statistics
+        case 9: Customer::numberOfCustomers();
+          std::cout << "Number of customers: " << Customer::numberOfCustomers() << std::endl;
+          break;
+         case 10: Car::numberOfCars();
+           std::cout << "Number of cars: " << Car::numberOfCars() << std::endl;
+           break;
+         case 11:
 
-         case 10: // Export all information to a file
-         case 11: // Import all information to a file
+         case : // Export all information to a file
+         case : // Import all information to a file
          default:
             std::cout << "Invalid Choice" << std::endl;
         break;

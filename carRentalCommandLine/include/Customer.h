@@ -16,6 +16,7 @@ public:
     static void editCustomer();
     static bool existsCustomer();
     static void deleteCustomer();
+    static int numberOfCustomers();
 
     static Customer getCustomerInfo();
 

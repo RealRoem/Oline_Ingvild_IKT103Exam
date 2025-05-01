@@ -18,6 +18,7 @@ public:
     static void removeCar();
     static void assignCarToCustomer();
     static void unassignCarToCustomer();
+    static int numberOfCars();
 
     static Car getCarInfo();
 
