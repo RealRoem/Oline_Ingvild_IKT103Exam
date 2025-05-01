@@ -11,22 +11,20 @@
 
 namespace fs = std::filesystem;
 
-
 int main()
-{
+{ /*
+   fs::remove("carRental.sqlite");
+   fs::copy_file("carRental.sqlite.bak", "carRental.sqlite"); */
+
   auto storage = init_storage("carRental.sqlite");
   storage.sync_schema();
+
   while (true) {
     printMenu();
 
     switch (getUserInput()) {
       case 1: CarController::addCar(storage);
-      /*
-       if (CarController::existsCar(storage, carId)) {
-         std::cout << "Car already exist " << std::endl;
-       }
-       std::cout << "Car added" << std::endl;
-       break;
+       break; /*
     case 2: CarController::editCar();
        std::cout << "Car edited" << std::endl;
        if (!CarController::existsCar(storage, carId)) {
@@ -38,8 +36,7 @@ int main()
       if (!CarController::existsCar()) {
       std::cout << "Car does not exist" << std::endl;
       }
-      break; */
-
+      break;*/
       case 4: CustomerController::addCustomer(storage);
           break;
       case 5: CustomerController::editCustomer(storage);
@@ -82,12 +79,13 @@ int main()
           break;
         case 14: // Import all information to a file
           break; */
+          case 15:
+            return 0;
       default:
         std::cout << "Invalid Choice" << std::endl;
       break;
     }
   }
-
     return 0;
 }
 

@@ -16,6 +16,8 @@ void printMenu(){
     std::cout << "10. Export all information to a file" << std::endl;
     std::cout << "11. Import all information from a file" << std::endl;
     std::cout << std::endl;
+    std::cout << "15. Exit" << std::endl;
+    std::cout << std::endl;
   };
 
   int getUserInput(){

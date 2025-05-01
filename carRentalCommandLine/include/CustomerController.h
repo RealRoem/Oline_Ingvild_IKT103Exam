@@ -15,6 +15,7 @@ class CustomerController {
 
 
     static Customer getCustomerInfo();
+    static void printCustomerInfo(Storage &storage);
 };
 
 
