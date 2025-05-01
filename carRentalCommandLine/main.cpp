@@ -3,12 +3,16 @@
 #include "Customer.h"
 #include "menu.h"
 #include "sqlite_orm.h"
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 
 
 
 int main()
 {
+  auto storage = init_storage("carRental.sqlite");
     printMenu();
    // getUserInput();
     switch (getUserInput()) {
