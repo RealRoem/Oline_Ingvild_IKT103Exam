@@ -17,18 +17,30 @@ int main()
            break;
         case 2: Car::editCar();
            std::cout << "Car edited" << std::endl;
+           if (!Car::existsCar()) {
+             std::cout << "Car does not exist" << std::endl;
+           }
            break;
         case 3: Car::removeCar();
           std::cout << "Car removed" << std::endl;
+          if (!Car::existsCar()) {
+          std::cout << "Car does not exist" << std::endl;
+          }
           break;
         case 4: Customer::addCustomer();
           std::cout << "Customer added" << std::endl;
           break;
         case 5: Customer::editCustomer();
           std::cout << "Customer edited" << std::endl;
+          if (!Customer::existsCustomer()) {
+            std::cout << "Customer does not exist" << std::endl;
+          }
           break;
         case 6: Customer::deleteCustomer();
           std::cout << "Customer removed" << std::endl;
+          if (!Customer::existsCustomer()) {
+            std::cout << "Customer does not exist" << std::endl;
+          }
           break;
         case 7: { // Assign car to customer
           int carId, customerId;
@@ -48,14 +60,11 @@ int main()
           Car::unassignCarToCustomer(carId);
           std::cout << "Car removed" << std::endl;
           break; }
-         case 9: // Show statistics
+         case 9: { // Show statistics
+
          case 10: // Export all information to a file
          case 11: // Import all information to a file
-
-
-
-
-        default:
+         default:
             std::cout << "Invalid Choice" << std::endl;
         break;
     }

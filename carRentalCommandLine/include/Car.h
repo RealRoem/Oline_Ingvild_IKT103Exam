@@ -14,6 +14,7 @@ public:
 
     static void addCar();
     static void editCar();
+    static bool existsCar();
     static void removeCar();
     static void assignCarToCustomer();
     static void unassignCarToCustomer();

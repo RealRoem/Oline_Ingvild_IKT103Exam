@@ -13,6 +13,7 @@ public:
 
     static void addCustomer();
     static void editCustomer();
+    static bool existsCustomer();
     static void deleteCustomer();
 
 };
