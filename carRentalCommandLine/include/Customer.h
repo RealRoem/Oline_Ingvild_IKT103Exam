@@ -16,6 +16,8 @@ public:
     static void editCustomer();
     static void deleteCustomer();
 
+    Customer 
+
 };
 
 #endif //CUSTOMER_H

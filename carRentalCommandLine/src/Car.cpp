@@ -1,7 +1,6 @@
 #include "Car.h"
 
 #include <iostream>
-#include <ostream>
 
 void Car::addCar(Storage &storage) {
     Car car = getCarInfo(); //henter informasjon om bilen fra brukerinput
