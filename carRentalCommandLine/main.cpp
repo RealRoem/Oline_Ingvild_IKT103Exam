@@ -19,8 +19,9 @@ int main()
 
     switch (getUserInput()) {
         case 1: CarController::addCar(storage);
-           if (!CarController::existsCar(storage, carId)) {
-             std::cout << "Enter " << std::endl;
+          /*
+           if (CarController::existsCar(storage, carId)) {
+             std::cout << "Car already exist " << std::endl;
            }
            std::cout << "Car added" << std::endl;
            break;
@@ -85,7 +86,7 @@ int main()
         case 13: // Export all information to a file
           break;
         case 14: // Import all information to a file
-          break;
+          break; */
         default:
           std::cout << "Invalid Choice" << std::endl;
           break;

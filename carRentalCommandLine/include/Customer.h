@@ -11,8 +11,6 @@ public:
     std::string mail;
     std::string phonenumber;
 
-
-
 };
 
 #endif //CUSTOMER_H

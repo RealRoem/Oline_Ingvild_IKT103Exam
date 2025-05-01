@@ -6,8 +6,8 @@
 
 void CarController::addCar(Storage &storage) {
     Car car = getCarInfo(); //henter informasjon om bilen fra brukerinput
-    storage.insert(car); //legger til bilen i databasen
-    std::cout << "Car added" << std::endl;
+    storage.replace(car); //legger til bilen i databasen. replace istedenfor insert fordi PK ikke er int
+    std::cout << "Car added successfully" << std::endl;
 }
 
 Car CarController::getCarInfo() {
@@ -31,3 +31,7 @@ Car CarController::getCarInfo() {
 
     return Car{regNo, carModel, seats, gearbox, dailyRentalCost};
 }
+/*
+bool CarController::existsCar() {
+
+} */
