@@ -13,7 +13,12 @@ int main()
    // getUserInput();
     switch (getUserInput()) {
         case 1: Car::addCar();
+        break;
        // case 2: Car::editCar();
+
+        default:
+            std::cout << "Invalid Choice" << std::endl;
+        break;
     }
 
     return 0;
