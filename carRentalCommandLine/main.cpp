@@ -6,6 +6,8 @@
 #include "storage.h"
 #include <filesystem>
 
+#include "CarController.h"
+
 namespace fs = std::filesystem;
 
 
@@ -16,21 +18,21 @@ int main()
   printMenu();
 
     switch (getUserInput()) {
-        case 1: Car::addCar(storage);
-           if (!Car::existsCar(storage, carId)) {
+        case 1: CarController::addCar(storage);
+           if (!CarController::existsCar(storage, carId)) {
              std::cout << "Enter " << std::endl;
            }
            std::cout << "Car added" << std::endl;
            break;
-        case 2: Car::editCar();
+        case 2: CarController::editCar();
            std::cout << "Car edited" << std::endl;
-           if (!Car::existsCar(storage, carId)) {
+           if (!CarController::existsCar(storage, carId)) {
              std::cout << "Car does not exist" << std::endl;
            }
            break;
-        case 3: Car::removeCar();
+        case 3: CarController::removeCar();
           std::cout << "Car removed" << std::endl;
-          if (!Car::existsCar()) {
+          if (!CarController::existsCar()) {
           std::cout << "Car does not exist" << std::endl;
           }
           break;
@@ -55,7 +57,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::assignCarToCustomer(storage, carId, customerId);
+          CarController::assignCarToCustomer(storage, carId, customerId);
           std::cout << "Car assigned" << std::endl;
           break; }
         case 8: { // Unassign car to customer
@@ -64,21 +66,21 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::unassignCarToCustomer(storage, carId, customerId);
+          CarController::unassignCarToCustomer(storage, carId, customerId);
           std::cout << "Car removed" << std::endl;
           break; }
       // Show statistics:
-        case 9: Car::numberOfCars();
-          std::cout << "Number of cars: " << Car::numberOfCars() << std::endl;
+        case 9: CarController::numberOfCars();
+          std::cout << "Number of cars: " << CarController::numberOfCars() << std::endl;
           break;
         case 10: Customer::numberOfCustomers();
           std::cout << "Number of customers: " << Customer::numberOfCustomers() << std::endl;
           break;
-        case 11: Car::activeRentals();
-          std::cout << "Number of active rentals: " << Car::activeRentals() << std::endl;
+        case 11: CarController::activeRentals();
+          std::cout << "Number of active rentals: " << CarController::activeRentals() << std::endl;
           break;
-        case 12: Car::completedRentals();
-          std::cout << "Number of completed rentals: " << Car::completedRentals() << std::endl;
+        case 12: CarController::completedRentals();
+          std::cout << "Number of completed rentals: " << CarController::completedRentals() << std::endl;
           break;
         case 13: // Export all information to a file
           break;
