@@ -24,6 +24,6 @@ inline auto init_storage(const std::string &filename) {
                         ));
     return storage;
 }
-using Storage =decltype(init_storage(""));
+using Storage = decltype(init_storage(""));
 
 #endif //STORAGE_H
