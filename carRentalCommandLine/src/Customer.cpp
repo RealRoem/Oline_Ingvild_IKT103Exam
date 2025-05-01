@@ -27,5 +27,33 @@ Customer CustomerController::getCustomerInfo() {
     std::cin >> phonenumber;
 
     return Customer{-1, customerName, dateofBirth, mail, phonenumber};
-
 }
+
+void CustomerController::editCustomer(Storage &storage) {
+    int inputId;
+    std::cout << "Enter customer id to edit: " << std::endl;
+    std::cin >> inputId;
+    auto customer = storage.get_pointer<Customer>(inputId); //returnerer en nullptr hvis id ikke finnes, slik at if(customer) blir false
+    if(customer) {
+        Customer customer = getCustomerInfo();
+        storage.update (customer);
+        std::cout << "Customer edited successfully" << std::endl;
+    } else {
+        std::cout << "Customer not found" << std::endl;
+    }
+}
+
+void CustomerController::deleteCustomer(Storage &storage) {
+    int inputId;
+    std::cout << "Enter customer id to delete: " << std::endl;
+    std::cin >> inputId;
+    auto customer = storage.get_pointer<Customer>(inputId);
+    if(customer) {
+        storage.remove<Customer>(inputId);
+        std::cout << "Customer deleted successfully" << std::endl;
+    } else {
+        std::cout << "Customer not found" << std::endl;
+    }
+}
+
+

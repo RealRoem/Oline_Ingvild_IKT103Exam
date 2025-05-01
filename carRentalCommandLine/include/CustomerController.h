@@ -9,9 +9,10 @@ class CustomerController {
     Storage &m_storage; // Referanse til Storage-objektet
 
     static void addCustomer(Storage &storage);
-    static void editCustomer();
+    static void editCustomer(Storage &storage);
+    static void deleteCustomer(Storage &storage);
     static bool existsCustomer();
-    static void deleteCustomer();
+
 
     static Customer getCustomerInfo();
 };
