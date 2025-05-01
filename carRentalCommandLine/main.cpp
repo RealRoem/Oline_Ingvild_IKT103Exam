@@ -3,20 +3,19 @@
 #include "Customer.h"
 #include "menu.h"
 #include "sqlite_orm.h"
+//#include "storage.h"
 #include <filesystem>
 
 namespace fs = std::filesystem;
 
 
-
-
 int main()
 {
   auto storage = init_storage("carRental.sqlite");
-    printMenu();
-   // getUserInput();
+  printMenu();
+
     switch (getUserInput()) {
-        case 1: Car::addCar();
+        case 1: Car::addCar(storage);
            std::cout << "Car added" << std::endl;
            break;
         case 2: Car::editCar();
