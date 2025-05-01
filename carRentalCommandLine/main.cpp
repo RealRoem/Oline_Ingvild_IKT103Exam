@@ -16,11 +16,14 @@ int main()
 
     switch (getUserInput()) {
         case 1: Car::addCar(storage);
+           if (!Car::existsCar(storage, carId)) {
+             std::cout << "Enter " << std::endl;
+           }
            std::cout << "Car added" << std::endl;
            break;
         case 2: Car::editCar();
            std::cout << "Car edited" << std::endl;
-           if (!Car::existsCar()) {
+           if (!Car::existsCar(storage, carId)) {
              std::cout << "Car does not exist" << std::endl;
            }
            break;
@@ -51,7 +54,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::assignCarToCustomer(carId, customerId);
+          Car::assignCarToCustomer(storage, carId, customerId);
           std::cout << "Car assigned" << std::endl;
           break; }
         case 8: { // Unassign car to customer
@@ -60,18 +63,29 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::unassignCarToCustomer(carId);
+          Car::unassignCarToCustomer(storage, carId, customerId);
           std::cout << "Car removed" << std::endl;
           break; }
-         case 9:  // Show statistics
-           break;
-         case 10: // Export all information to a file
-         break;
-         case 11: // Import all information to a file
-         break;
-         default:
-            std::cout << "Invalid Choice" << std::endl;
-        break;
+      // Show statistics:
+        case 9: Car::numberOfCars();
+          std::cout << "Number of cars: " << Car::numberOfCars() << std::endl;
+          break;
+        case 10: Customer::numberOfCustomers();
+          std::cout << "Number of customers: " << Customer::numberOfCustomers() << std::endl;
+          break;
+        case 11: Car::activeRentals();
+          std::cout << "Number of active rentals: " << Car::activeRentals() << std::endl;
+          break;
+        case 12: Car::completedRentals();
+          std::cout << "Number of completed rentals: " << Car::completedRentals() << std::endl;
+          break;
+        case 13: // Export all information to a file
+          break;
+        case 14: // Import all information to a file
+          break;
+        default:
+          std::cout << "Invalid Choice" << std::endl;
+          break;
     }
 
     return 0;
