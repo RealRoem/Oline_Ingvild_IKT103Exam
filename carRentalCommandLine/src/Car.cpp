@@ -1,16 +1,16 @@
 #include "Car.h"
-
+#include "CarController.h"
 #include <iostream>
+#include "storage.h"
 
 
-
-void Car::addCar(Storage &storage) {
+void CarController::addCar(Storage &storage) {
     Car car = getCarInfo(); //henter informasjon om bilen fra brukerinput
     storage.insert(car); //legger til bilen i databasen
     std::cout << "Car added" << std::endl;
 }
 
-Car Car::getCarInfo() {
+Car CarController::getCarInfo() {
     std::string regNo;
     std::string carModel;
     int seats;
