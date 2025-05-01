@@ -1,9 +1,11 @@
 #ifndef STORAGE_H
 #define STORAGE_H
 
+#include "sqlite_orm.h"
+#include <string>
 #include "Car.h"
 #include "Customer.h"
-#include "sqlite_orm.h"
+
 
 inline auto init_storage(const std::string &filename) {
     using namespace sqlite_orm;
@@ -25,5 +27,6 @@ inline auto init_storage(const std::string &filename) {
     return storage;
 }
 using Storage = decltype(init_storage(""));
+
 
 #endif //STORAGE_H

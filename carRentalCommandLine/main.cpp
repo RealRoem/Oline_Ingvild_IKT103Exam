@@ -3,7 +3,7 @@
 #include "Customer.h"
 #include "menu.h"
 #include "sqlite_orm.h"
-//#include "storage.h"
+#include "storage.h"
 #include <filesystem>
 
 namespace fs = std::filesystem;
@@ -12,6 +12,7 @@ namespace fs = std::filesystem;
 int main()
 {
   auto storage = init_storage("carRental.sqlite");
+  storage.sync_schema();
   printMenu();
 
     switch (getUserInput()) {
