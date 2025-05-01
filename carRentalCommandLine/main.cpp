@@ -66,12 +66,16 @@ int main()
          case 10: Car::numberOfCars();
            std::cout << "Number of cars: " << Car::numberOfCars() << std::endl;
            break;
-         case 11:
-
-         case : // Export all information to a file
-         case : // Import all information to a file
+         case 11: Car::activeRentals(); // Number of active rentals
+           std::cout << "Active rentals: " << Car::activeRentals() << std::endl;
+           break;
+         case 12: Car::completedRentals(); // Number of completed rentals
+           std::cout << "Completed rentals: " << Car::completedRentals() << std::endl;
+           break;
+         case 13: // Export all information to a file
+         case 14: // Import all information to a file
          default:
-            std::cout << "Invalid Choice" << std::endl;
+            std::cout << "Invalid choice" << std::endl;
         break;
     }
 

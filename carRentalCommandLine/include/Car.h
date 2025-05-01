@@ -20,6 +20,9 @@ public:
     static void unassignCarToCustomer();
     static int numberOfCars();
 
+    static int activeRentals();
+    static int completedRentals();
+
     static Car getCarInfo();
 
 };
