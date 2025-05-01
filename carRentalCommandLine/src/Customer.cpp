@@ -1,15 +1,16 @@
 #include "Customer.h"
-
+#include "CustomerController.h"
 #include <iostream>
+#include "storage.h"
 
 
-void Customer::addCustomer(Storage &storage) {
+void CustomerController::addCustomer(Storage &storage) {
     Customer customer = getCustomerInfo(); //henter informasjon om kunden fra brukerinput
     storage.insert (customer); //legger til kunden i databasen
     std::cout << "Customer added" << std::endl;
 }
 
-Customer Customer::getCustomerInfo() {
+Customer CustomerController::getCustomerInfo() {
     std::string customerName;
     std::string dateofBirth;
     std::string mail;
