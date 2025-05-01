@@ -16,11 +16,14 @@ int main()
 
     switch (getUserInput()) {
         case 1: Car::addCar(storage);
+           if (!Car::existsCar(storage, carId)) {
+             std::cout << "Enter " << std::endl;
+           }
            std::cout << "Car added" << std::endl;
            break;
         case 2: Car::editCar();
            std::cout << "Car edited" << std::endl;
-           if (!Car::existsCar()) {
+           if (!Car::existsCar(storage, carId)) {
              std::cout << "Car does not exist" << std::endl;
            }
            break;
@@ -51,7 +54,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::assignCarToCustomer(carId, customerId);
+          Car::assignCarToCustomer(storage, carId, customerId);
           std::cout << "Car assigned" << std::endl;
           break; }
         case 8: { // Unassign car to customer
@@ -60,7 +63,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::unassignCarToCustomer(carId);
+          Car::unassignCarToCustomer(storage, carId, customerId);
           std::cout << "Car removed" << std::endl;
           break; }
       // Show statistics:
