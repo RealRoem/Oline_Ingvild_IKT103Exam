@@ -64,10 +64,12 @@ int main()
           Car::unassignCarToCustomer(carId);
           std::cout << "Car removed" << std::endl;
           break; }
-         case 9: { // Show statistics
-
+         case 9:  // Show statistics
+           break;
          case 10: // Export all information to a file
+         break;
          case 11: // Import all information to a file
+         break;
          default:
             std::cout << "Invalid Choice" << std::endl;
         break;
