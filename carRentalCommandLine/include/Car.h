@@ -1,6 +1,7 @@
 #ifndef CAR_H
 #define CAR_H
 #include <string>
+#include "storage.h"
 
 class Car {
 public:
@@ -9,16 +10,15 @@ public:
     int seats;
     std::string gearbox;
     int dailyRentalCost;
-
     int customerId;
 
-    static void addCar();
+    static void addCar(Storage &storage);
     static void editCar();
     static void removeCar();
     static void assignCarToCustomer();
     static void unassignCarToCustomer();
 
-    void getCarInfo();
+    static Car getCarInfo();
 
 };
 
