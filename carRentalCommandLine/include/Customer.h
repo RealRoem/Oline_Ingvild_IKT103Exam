@@ -11,9 +11,9 @@ public:
     std::string mail;
     std::string phonenumber;
 
-    void addCustomer();
-    void editCustomer();
-    void deleteCustomer();
+    static void addCustomer();
+    static void editCustomer();
+    static void deleteCustomer();
 
 };
 
