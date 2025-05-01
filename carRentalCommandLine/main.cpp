@@ -79,7 +79,7 @@ int main()
           break;
         case 14: // Import all information to a file
           break; */
-          case 15:
+      case 15:
             return 0;
       default:
         std::cout << "Invalid Choice" << std::endl;
