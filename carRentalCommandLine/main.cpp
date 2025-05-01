@@ -9,12 +9,14 @@
 #include "CarController.h"
 #include "CustomerController.h"
 
+
+
 namespace fs = std::filesystem;
 
 int main()
-{ /*
-   fs::remove("carRental.sqlite");
-   fs::copy_file("carRental.sqlite.bak", "carRental.sqlite"); */
+{
+   //fs::remove("carRental.sqlite");
+   //fs::copy_file("carRental.sqlite.bak", "carRental.sqlite");
 
   auto storage = init_storage("carRental.sqlite");
   storage.sync_schema();
@@ -38,9 +40,8 @@ int main()
       case 5: CustomerController::editCustomer(storage);
           break;
       case 6: CustomerController::deleteCustomer(storage);
-          break;
-      /*
-        case 7: { // Assign car to customer
+          break; /*
+      case 7: { // Assign car to customer
           int carId, customerId;
           std::cout << "Enter carID: ";
           std::cin >> carId;
@@ -49,7 +50,7 @@ int main()
           CarController::assignCarToCustomer(storage, carId, customerId);
           std::cout << "Car assigned" << std::endl;
           break; }
-        case 8: { // Unassign car to customer
+      case 8: { // Unassign car to customer
           int carId, customerId;
           std::cout << "Enter carID: ";
           std::cin >> carId;
@@ -59,23 +60,22 @@ int main()
           std::cout << "Car removed" << std::endl;
           break; }
       // Show statistics:
-        case 9: CarController::numberOfCars();
+      case 9: {
+          CarController::numberOfCars();
           std::cout << "Number of cars: " << CarController::numberOfCars() << std::endl;
-          break;
-        case 10: Customer::numberOfCustomers();
+          Customer::numberOfCustomers();
           std::cout << "Number of customers: " << Customer::numberOfCustomers() << std::endl;
-          break;
-        case 11: CarController::activeRentals();
+          CarController::activeRentals();
           std::cout << "Number of active rentals: " << CarController::activeRentals() << std::endl;
-          break;
-        case 12: CarController::completedRentals();
+          CarController::completedRentals();
           std::cout << "Number of completed rentals: " << CarController::completedRentals() << std::endl;
           break;
-        case 13: // Export all information to a file
+        }
+        case 10: // Export all information to a file
           break;
-        case 14: // Import all information to a file
+        case 11: // Import all information to a file
           break; */
-      case 15:
+      case 12:
             return 0;
       default:
         std::cout << "Invalid Choice" << std::endl;

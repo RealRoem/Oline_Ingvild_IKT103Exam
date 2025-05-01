@@ -64,8 +64,6 @@ void CustomerController::searchCustomer(Storage &storage) {
     }
 }
 
-
-
 Customer CustomerController::getCustomerInfo() {
     std::string customerName;
     std::string dateofBirth;
