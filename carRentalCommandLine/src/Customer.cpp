@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+
 void Customer::addCustomer(Storage &storage) {
     Customer customer = getCustomerInfo(); //henter informasjon om kunden fra brukerinput
     storage.insert (customer); //legger til kunden i databasen

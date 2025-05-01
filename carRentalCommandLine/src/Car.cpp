@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+
+
 void Car::addCar(Storage &storage) {
     Car car = getCarInfo(); //henter informasjon om bilen fra brukerinput
     storage.insert(car); //legger til bilen i databasen

@@ -1,17 +1,21 @@
 #include <iostream>
 #include "Car.h"
 #include "Customer.h"
-#include "storage.h"
 #include "menu.h"
 #include "sqlite_orm.h"
+//#include "storage.h"
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 
 int main()
 {
-    printMenu();
-   // getUserInput();
+  auto storage = init_storage("carRental.sqlite");
+  printMenu();
+
     switch (getUserInput()) {
-        case 1: Car::addCar();
+        case 1: Car::addCar(storage);
            std::cout << "Car added" << std::endl;
            break;
         case 2: Car::editCar();
@@ -47,7 +51,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::assignCarToCustomer (storage, carId, customerId);
+          Car::assignCarToCustomer(carId, customerId);
           std::cout << "Car assigned" << std::endl;
           break; }
         case 8: { // Unassign car to customer
@@ -56,25 +60,17 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::unassignCarToCustomer(storage, carId, customerId);
+          Car::unassignCarToCustomer(carId);
           std::cout << "Car removed" << std::endl;
           break; }
-        case 9: Customer::numberOfCustomers();
-          std::cout << "Number of customers: " << Customer::numberOfCustomers() << std::endl;
-          break;
-         case 10: Car::numberOfCars();
-           std::cout << "Number of cars: " << Car::numberOfCars() << std::endl;
+         case 9:  // Show statistics
            break;
-         case 11: Car::activeRentals(); // Number of active rentals
-           std::cout << "Active rentals: " << Car::activeRentals() << std::endl;
-           break;
-         case 12: Car::completedRentals(); // Number of completed rentals
-           std::cout << "Completed rentals: " << Car::completedRentals() << std::endl;
-           break;
-         case 13: // Export all information to a file
-         case 14: // Import all information to a file
+         case 10: // Export all information to a file
+         break;
+         case 11: // Import all information to a file
+         break;
          default:
-            std::cout << "Invalid choice" << std::endl;
+            std::cout << "Invalid Choice" << std::endl;
         break;
     }
 
