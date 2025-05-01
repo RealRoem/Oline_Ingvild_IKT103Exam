@@ -1,10 +1,9 @@
 #include <iostream>
 #include "Car.h"
 #include "Customer.h"
+#include "storage.h"
 #include "menu.h"
 #include "sqlite_orm.h"
-
-
 
 
 int main()
@@ -48,7 +47,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::assignCarToCustomer(carId, customerId);
+          Car::assignCarToCustomer (storage, carId, customerId);
           std::cout << "Car assigned" << std::endl;
           break; }
         case 8: { // Unassign car to customer
@@ -57,7 +56,7 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          Car::unassignCarToCustomer(carId);
+          Car::unassignCarToCustomer(storage, carId, customerId);
           std::cout << "Car removed" << std::endl;
           break; }
         case 9: Customer::numberOfCustomers();
