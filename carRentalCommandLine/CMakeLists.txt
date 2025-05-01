@@ -11,7 +11,9 @@ file(GLOB_RECURSE SOURCES "src/*.cpp" "main.cpp")
 
 
 include_directories(${CMAKE_SOURCE_DIR}/sqlite3)
-set(SQLITE_SRC ${CMAKE_SOURCE_DIR}/sqlite3/sqlite3.c)
+set(SQLITE_SRC ${CMAKE_SOURCE_DIR}/sqlite3/sqlite3.c
+        src/storage.cpp
+        include/CarController.h)
 # Lag kjørbar fil
 add_executable(${PROJECT_NAME} ${SOURCES} ${SQLITE_SRC}
         include/storage.h)
