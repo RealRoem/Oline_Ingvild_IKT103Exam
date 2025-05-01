@@ -64,6 +64,11 @@ void CustomerController::searchCustomer(Storage &storage) {
     }
 }
 
+void CustomerController::numberOfCustomers(Storage &storage) {
+    auto customercount = storage.count<Customer>();
+    std::cout << "Number of customers: " << customercount << std::endl;
+}
+
 Customer CustomerController::getCustomerInfo() {
     std::string customerName;
     std::string dateofBirth;

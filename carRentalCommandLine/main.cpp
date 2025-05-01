@@ -9,8 +9,6 @@
 #include "CarController.h"
 #include "CustomerController.h"
 
-
-
 namespace fs = std::filesystem;
 
 int main()
@@ -75,7 +73,8 @@ int main()
           break;
         case 11: // Import all information to a file
           break; */
-      case 12:
+        case 9: CustomerController::numberOfCustomers(storage);
+        case 12:
             return 0;
       default:
         std::cout << "Invalid Choice" << std::endl;
