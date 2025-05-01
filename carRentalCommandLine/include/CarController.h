@@ -11,7 +11,7 @@ class CarController {
     static void addCar(Storage &storage);
     static void editCar(Storage &storage);
     static bool existsCar();
-    static void removeCar();
+    static void removeCar(Storage &storage);
     static void assignCarToCustomer();
     static void unassignCarToCustomer();
 
