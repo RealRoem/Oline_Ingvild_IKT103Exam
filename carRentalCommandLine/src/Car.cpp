@@ -10,37 +10,6 @@ void CarController::addCar(Storage &storage) {
     std::cout << "Car added successfully" << std::endl;
 }
 
-void CarController::editCar(Storage &storage) {
-    std::string regNo;
-    std::cout << "Enter registration number: " << std::endl;
-    std::cin >> regNo;
-    if (get<Car>(regNo)) {
-        std::cout << "Registration number not found" << std::endl;
-    }
-try {
-    Car car storage.get<Car>(regNo);
-
-    std::string regNo;
-    std::string carModel;
-    int seats;
-    std::string gearbox;
-    int dailyRentalCost;
-
-    std::cout << "Enter new registration number: " << regNo << std::endl;
-    std::cin >> regNo;
-    std::cout << "Enter seat number: " << std::endl;
-    std::cin >> seats;
-    std::cout << "Enter gearbox number: " << std::endl;
-    std::cin >> gearbox;
-    std::cout << "Enter daily rental cost: " << std::endl;
-    std::cin >> dailyRentalCost;
-
-    storage.replace(regNo, carModel, seats, gearbox);
-    std::cout << "Car edited successfully" << std::endl;
-}
-}
-
-
 Car CarController::getCarInfo() {
     std::string regNo;
     std::string carModel;
@@ -62,6 +31,47 @@ Car CarController::getCarInfo() {
 
     return Car{regNo, carModel, seats, gearbox, dailyRentalCost};
 }
+
+
+void CarController::editCar(Storage &storage) {
+    std::string regNo;
+    std::cout << "Enter registration number to edit: " << std::endl;
+    std::cin >> regNo;
+    auto car = storage.get_pointer<Car>(regNo); //returnerer en nullptr hvis regNo ikke finnes, slik at if(car) blir false
+
+    if(car) {
+        std::cin.ignore();
+
+        std::cout << "Enter new registration number: ";
+        std::getline(std::cin, car->regNo);
+        std::cout << "Enter new car model: ";
+        std::getline(std::cin, car->carModel);
+        std::cout << "Enter new number of seats: ";
+        std::cin >> car->seats;
+        std::cout << "Enter new type of gearbox: ";
+        std::cin >> car->gearbox;
+        std::cout << "Enter new daily rental cost: ";
+        std::cin >> car->dailyRentalCost;
+        storage.update (*car);
+        std::cout << "Car edited successfully" << std::endl;
+    } else {
+        std::cout << "Car not found" << std::endl;
+    }
+}
+
+void CarController::removeCar(Storage &storage) {
+    int inputId;
+    std::cout << "Enter registration number to delete: " << std::endl;
+    std::cin >> inputId;
+    auto car = storage.get_pointer<Car>(inputId);
+    if(car) {
+        storage.remove<Car>(inputId);
+        std::cout << "Car deleted successfully" << std::endl;
+    } else {
+        std::cout << "Car not found" << std::endl;
+    }
+}
+
 /*
 bool CarController::existsCar() {
 
