@@ -4,6 +4,9 @@
 #include <ostream>
 
 void Car::addCar() {
+    getCarInfo;
+
+
 std::cout << "Car added" << std::endl;
 
 }

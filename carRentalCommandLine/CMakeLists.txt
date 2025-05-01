@@ -10,4 +10,5 @@ include_directories(include)
 file(GLOB_RECURSE SOURCES "src/*.cpp" "main.cpp")
 
 # Lag kjørbar fil
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES}
+        include/storage.h)

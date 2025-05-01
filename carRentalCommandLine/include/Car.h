@@ -17,7 +17,9 @@ public:
     static void removeCar();
     static void assignCarToCustomer();
     static void unassignCarToCustomer();
+
     void getCarInfo();
+
 };
 
 #endif //CAR_H
