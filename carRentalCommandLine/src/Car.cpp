@@ -60,12 +60,12 @@ void CarController::editCar(Storage &storage) {
 }
 
 void CarController::removeCar(Storage &storage) {
-    int inputId;
+    int regNo;
     std::cout << "Enter registration number to delete: " << std::endl;
-    std::cin >> inputId;
-    auto car = storage.get_pointer<Car>(inputId);
+    std::cin >> regNo;
+    auto car = storage.get_pointer<Car>(regNo);
     if(car) {
-        storage.remove<Car>(inputId);
+        storage.remove<Car>(regNo);
         std::cout << "Car deleted successfully" << std::endl;
     } else {
         std::cout << "Car not found" << std::endl;

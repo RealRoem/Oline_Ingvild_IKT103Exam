@@ -24,19 +24,15 @@ int main()
 
     switch (getUserInput()) {
       case 1: CarController::addCar(storage);
+       break;
+      case 2: CarController::editCar(storage);
        break; /*
-    case 2: CarController::editCar();
-       std::cout << "Car edited" << std::endl;
        if (!CarController::existsCar(storage, carId)) {
          std::cout << "Car does not exist" << std::endl;
        }
-       break;
-    case 3: CarController::removeCar();
-      std::cout << "Car removed" << std::endl;
-      if (!CarController::existsCar()) {
-      std::cout << "Car does not exist" << std::endl;
-      }
-      break;*/
+       break; */
+    case 3: CarController::removeCar(storage);
+      break;
       case 4: CustomerController::addCustomer(storage);
           break;
       case 5: CustomerController::editCustomer(storage);
