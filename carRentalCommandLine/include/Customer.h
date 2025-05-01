@@ -1,7 +1,6 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <string>
-#include "storage.h"
 
 
 class Customer {
@@ -12,13 +11,7 @@ public:
     std::string mail;
     std::string phonenumber;
 
-    static void addCustomer(Storage &storage);
-    static void editCustomer();
-    static bool existsCustomer();
-    static void deleteCustomer();
-    static int numberOfCustomers();
 
-    static Customer getCustomerInfo();
 
 };
 
