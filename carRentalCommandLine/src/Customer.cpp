@@ -3,24 +3,7 @@
 #include <iostream>
 #include "storage.h"
 
-Customer CustomerController::getCustomerInfo() {
-    std::string customerName;
-    std::string dateofBirth;
-    std::string mail;
-    std::string phonenumber;
 
-    std::cout << "Enter customer name: " << std::endl;
-    std::cin.ignore();
-    std::getline(std::cin, customerName);
-    std::cout << "Enter customers date of birth: " << std::endl;
-    std::cin >> dateofBirth;
-    std::cout << "Enter customers mail: " << std::endl;
-    std::cin >> mail;
-    std::cout << "Enter customers phonenumber: " << std::endl;
-    std::cin >> phonenumber;
-
-    return Customer{-1, customerName, dateofBirth, mail, phonenumber};
-}
 
 void CustomerController::addCustomer(Storage &storage) {
     Customer customer = getCustomerInfo(); //henter informasjon om kunden fra brukerinput
@@ -62,6 +45,46 @@ void CustomerController::deleteCustomer(Storage &storage) {
     printCustomerInfo(storage);
 }
 
+void CustomerController::searchCustomer(Storage &storage) {
+    Customer newCustomer;
+    std::cout << "Search for customer by name: " <<std::endl ;
+    std::string searchInput;
+    std::cin.ignore();
+    std::getline (std::cin, searchInput);
+    auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Customer::customerName, searchInput));
+    auto customers = storage.get_all<Customer>(whereCondition);
+
+    if (customers.empty()) {
+        std::cout << "No students found" << std::endl;
+    }
+    else {
+        for (auto &newCustomer : customers) {
+            std::cout << "id: " << newCustomer.customerId <<", name: " << newCustomer.customerName << ", date of birth: " << newCustomer.dateofBirth<< ", email: " << newCustomer.mail << ", phone number: "<< newCustomer.phonenumber << std::endl;
+        }
+    }
+}
+
+
+
+Customer CustomerController::getCustomerInfo() {
+    std::string customerName;
+    std::string dateofBirth;
+    std::string mail;
+    std::string phonenumber;
+
+    std::cout << "Enter customer name: " << std::endl;
+    std::cin.ignore();
+    std::getline(std::cin, customerName);
+    std::cout << "Enter customers date of birth: " << std::endl;
+    std::cin >> dateofBirth;
+    std::cout << "Enter customers mail: " << std::endl;
+    std::cin >> mail;
+    std::cout << "Enter customers phonenumber: " << std::endl;
+    std::cin >> phonenumber;
+
+    return Customer{-1, customerName, dateofBirth, mail, phonenumber};
+}
+
 void CustomerController::printCustomerInfo(Storage &storage) {
     auto customers = storage.get_all<Customer>();
     for (const auto& [customerId, customerName, dateofBirth, mail, phonenumber] : customers) {
@@ -75,5 +98,3 @@ void CustomerController::printCustomerInfo(Storage &storage) {
     }
 
 }
-
-

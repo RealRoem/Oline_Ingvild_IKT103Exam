@@ -11,8 +11,7 @@ class CustomerController {
     static void addCustomer(Storage &storage);
     static void editCustomer(Storage &storage);
     static void deleteCustomer(Storage &storage);
-    static bool existsCustomer();
-
+    static void searchCustomer(Storage &storage);
 
     static Customer getCustomerInfo();
     static void printCustomerInfo(Storage &storage);
