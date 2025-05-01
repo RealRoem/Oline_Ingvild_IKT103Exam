@@ -12,11 +12,11 @@ public:
     std::string mail;
     std::string phonenumber;
 
-    static void addCustomer();
+    static void addCustomer(Storage &storage);
     static void editCustomer();
     static void deleteCustomer();
 
-    Customer 
+    static Customer getCustomerInfo();
 
 };
 
