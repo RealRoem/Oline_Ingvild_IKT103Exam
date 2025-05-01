@@ -31,8 +31,8 @@ int main()
          std::cout << "Car does not exist" << std::endl;
        }
        break; */
-    case 3: CarController::removeCar(storage);
-      break;
+      case 3: CarController::removeCar(storage);
+        break;
       case 4: CustomerController::addCustomer(storage);
           break;
       case 5: CustomerController::editCustomer(storage);
