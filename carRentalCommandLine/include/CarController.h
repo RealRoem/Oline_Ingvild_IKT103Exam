@@ -15,7 +15,7 @@ class CarController {
     static void unassignCarToCustomer();
 
     static Car getCarInfo();
-    static void printCarInfo();
+    static void printCarInfo(Storage &storage);
 };
 
 #endif //CARCONTROLLER_H
