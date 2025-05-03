@@ -15,7 +15,8 @@ set(SQLITE_SRC ${CMAKE_SOURCE_DIR}/sqlite3/sqlite3.c
         include/CarController.h
         include/CustomerController.h
         src/Rental.cpp
-        include/Rental.h)
+        include/Rental.h
+        include/RentalController.h)
 # Lag kjørbar fil
 add_executable(${PROJECT_NAME} ${SOURCES} ${SQLITE_SRC}
         include/storage.h)

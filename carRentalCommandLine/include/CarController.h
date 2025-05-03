@@ -15,9 +15,6 @@ class CarController {
     static void searchCar(Storage &storage);
     static void numberOfCars(Storage &storage);
 
-    static void assignCarToCustomer(Storage &storage);
-    static void unassignCarToCustomer(Storage &storage);
-
     static Car getCarInfo();
     static void printCarInfo(Storage &storage);
 };
