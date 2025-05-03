@@ -5,33 +5,59 @@
 #include "RentalController.h"
 #include "storage.h"
 
-void printMenu(){
-    std::cout << "1. Add car" << std::endl;
-    std::cout << "2. Edit car" << std::endl;
-    std::cout << "3. Remove car" << std::endl;
-    std::cout << std::endl;
-    std::cout << "4. Add customer" << std::endl;
-    std::cout << "5. Edit customer" << std::endl;
-    std::cout << "6. Remove customer" << std::endl;
-    std::cout << std::endl;
-    std::cout << "7. Assign car to customer" << std::endl;
-    std::cout << "8. Unassign car to customer" << std::endl;
-    std::cout << "9. Show statistics" << std::endl;
-    std::cout << "10. Export all information to a file" << std::endl;
-    std::cout << "11. Import all information from a file" << std::endl;
-    std::cout << std::endl;
-    std::cout << "12. Exit" << std::endl;
-    std::cout << std::endl;
-  };
+void printMenu() {
+    std::cout << "\n=== Main Menu ===\n";
+    std::cout << " 1. Car Management\n";
+    std::cout << " 2. Customer Management\n";
+    std::cout << " 3. Rental Management\n";
+    std::cout << " 4. Show Statistics\n";
+    std::cout << " 5. Import/Export Data\n";
+    std::cout << " 6. Exit\n";
+    std::cout << "=====================\n";
+}
+
+void showCarMenu(Storage &storage) {
+    int carManagement;
+    std::cout << "\n=== Car Management ===\n";
+    std::cout << " 1. Add car\n";
+    std::cout << " 2. Edit car\n";
+    std::cout << " 2. Delete car\n";
+    std::cout << " 3. View number of cars\n";
+    std::cout << "=====================\n";
+    std::cin >> carManagement;
+}
+
+void showCustomerMenu(Storage &storage) {
+    int customerManagement;
+    std::cout << "\n=== Customer Management ===\n";
+    std::cout << " 1. Add customer\n";
+    std::cout << " 2. Edit customer\n";
+    std::cout << " 3. Delete customer\n";
+    std::cout << " 4. View number of customers\n";
+    std::cout << "=====================\n";
+    std::cin >> customerManagement;
+}
+
+void showRentalMenu(Storage &storage) {
+    int rentalManagement;
+    std::cout << "\n=== Rental Management ===\n";
+    std::cout << "1. Assign car to customer\n";
+    std::cout << "2. Unassign car to customer\n";
+    std::cout << "Number of assigned cars\n";
+    std::cout << "Number of available cars\n";
+    std::cout << "=====================\n";
+    std::cin >> rentalManagement;
+}
 
 void showStatisticsMenu(Storage &storage) {
     int statisticsMenu;;
-    std::cout << "\n Statistics menu: \n";
+    std::cout << "\n=== Statistics menu: ===\n";
     std::cout << "1. Total number of customers\n";
     std::cout << "2. Total number of cars\n";
     std::cout << "3. Number of assigned cars\n";
     std::cout << "4. Number of available cars\n";
     std::cout << "Enter your choice: ";
+    std::cout << "=====================\n";
     std::cin >> statisticsMenu;
 
     switch (statisticsMenu) {
@@ -50,6 +76,14 @@ void showStatisticsMenu(Storage &storage) {
         default:
             std::cout << "Invalid choice. Returning to main menu.\n";
     }
+}
+
+void ImportExportMenu(Storage &storage) {
+    int ImportExport;
+    std::cout << "Export all information\n";
+    std::cout << "Import all information\n";
+    std::cout << "=====================\n";
+    std::cin >> ImportExport;
 }
 
   int getUserInput(){
