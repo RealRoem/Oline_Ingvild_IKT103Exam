@@ -8,6 +8,7 @@
 
 #include "CarController.h"
 #include "CustomerController.h"
+#include "RentalController.h"
 
 namespace fs = std::filesystem;
 
@@ -38,14 +39,14 @@ int main()
       case 5: CustomerController::editCustomer(storage);
           break;
       case 6: CustomerController::deleteCustomer(storage);
-          break; /*
+          break;
       case 7: { // Assign car to customer
           int carId, customerId;
           std::cout << "Enter carID: ";
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          CarController::assignCarToCustomer(storage, carId, customerId);
+          RentalController::assignCarToCustomer(storage);
           std::cout << "Car assigned" << std::endl;
           break; }
       case 8: { // Unassign car to customer
@@ -54,24 +55,21 @@ int main()
           std::cin >> carId;
           std::cout << "Enter customerID: ";
           std::cin >> customerId;
-          CarController::unassignCarToCustomer(storage, carId, customerId);
+          RentalController::unassignCarToCustomer(storage);
           std::cout << "Car removed" << std::endl;
           break; }
       // Show statistics:
       case 9: {
-          CarController::numberOfCars();
-          std::cout << "Number of cars: " << CarController::numberOfCars() << std::endl;
+          CarController::numberOfCars(storage);
           CustomerController::numberOfCustomers(storage);
-          CarController::activeRentals();
-          std::cout << "Number of active rentals: " << CarController::activeRentals() << std::endl;
-          CarController::completedRentals();
-          std::cout << "Number of completed rentals: " << CarController::completedRentals() << std::endl;
+          RentalController::activeRentals(storage);
+          RentalController::completedRentals(storage);
           break;
         }
         case 10: // Export all information to a file
           break;
         case 11: // Import all information to a file
-          break; */
+          break;
         case 12:
             return 0;
       default:
