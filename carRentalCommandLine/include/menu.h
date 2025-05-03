@@ -4,7 +4,7 @@
 
 void printMenu();
 int getUserInput();
-void showStatisticsMenu(Storage &storage);
+void showAllStatistics(Storage &storage);
 void showCarMenu(Storage &storage);
 void showCustomerMenu(Storage &storage);
 void showRentalMenu(Storage &storage);
