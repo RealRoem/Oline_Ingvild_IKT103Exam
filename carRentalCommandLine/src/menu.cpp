@@ -1,5 +1,9 @@
 #include "menu.h"
 #include <iostream>
+#include "CarController.h"
+#include "CustomerController.h"
+#include "RentalController.h"
+#include "storage.h"
 
 void printMenu(){
     std::cout << "1. Add car" << std::endl;
@@ -19,6 +23,34 @@ void printMenu(){
     std::cout << "12. Exit" << std::endl;
     std::cout << std::endl;
   };
+
+void showStatisticsMenu(Storage &storage) {
+    int statisticsMenu;;
+    std::cout << "\n Statistics menu: \n";
+    std::cout << "1. Total number of customers\n";
+    std::cout << "2. Total number of cars\n";
+    std::cout << "3. Number of assigned cars\n";
+    std::cout << "4. Number of available cars\n";
+    std::cout << "Enter your choice: ";
+    std::cin >> statisticsMenu;
+
+    switch (statisticsMenu) {
+        case 1: CarController::numberOfCars(storage);
+            std::cout << "Total number of customers: ";
+        break;
+        case 2: CustomerController::numberOfCustomers(storage);
+            std::cout << "Total number of cars: ";
+        break;
+        case 3: RentalController::activeRentals(storage);
+            std::cout << "Number of assigned cars: ";
+        break;
+        case 4: RentalController::completedRentals(storage);
+            std::cout << "Number of available cars: ";
+        break;
+        default:
+            std::cout << "Invalid choice. Returning to main menu.\n";
+    }
+}
 
   int getUserInput(){
       std::cout << "Enter your choice: " << std::endl ;
