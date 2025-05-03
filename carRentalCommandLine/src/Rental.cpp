@@ -22,7 +22,7 @@ void RentalController::unassignCarToCustomer(Storage &storage) {
 
 void RentalController::activeRentals(Storage &storage) {
     auto activeRental = storage.count<Rental>(sqlite_orm::where(sqlite_orm::c(&Rental::status) == true));
-    std::cout << "Number of ative rentals: " << activeRental << std::endl;
+    std::cout << "Number of active rentals: " << activeRental << std::endl;
 }
 
 void RentalController::completedRentals(Storage &storage) {
