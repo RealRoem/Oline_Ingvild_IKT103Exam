@@ -46,7 +46,6 @@ void CustomerController::deleteCustomer(Storage &storage) {
 }
 
 void CustomerController::searchCustomer(Storage &storage) {
-    Customer newCustomer;
     std::cout << "Search for customer by name: " <<std::endl ;
     std::string searchInput;
     std::cin.ignore();
@@ -58,8 +57,8 @@ void CustomerController::searchCustomer(Storage &storage) {
         std::cout << "No students found" << std::endl;
     }
     else {
-        for (auto &newCustomer : customers) {
-            std::cout << "id: " << newCustomer.customerId <<", name: " << newCustomer.customerName << ", date of birth: " << newCustomer.dateofBirth<< ", email: " << newCustomer.mail << ", phone number: "<< newCustomer.phonenumber << std::endl;
+        for (const auto &customer : customers) {
+            std::cout << "id: " << customer.customerId <<", name: " << customer.customerName << ", date of birth: " << customer.dateofBirth<< ", email: " << customer.mail << ", phone number: "<< customer.phonenumber << std::endl;
         }
     }
 }

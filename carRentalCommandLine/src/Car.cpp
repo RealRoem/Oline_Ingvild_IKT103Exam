@@ -103,7 +103,6 @@ void CarController::printCarInfo(Storage &storage) {
 }
 
 void CarController::searchCar(Storage &storage) {
-    Car newCar;
     std::cout << "Search for car by gearbox type: " <<std::endl ;
     std::string searchInput;
     std::cin.ignore();
@@ -115,12 +114,11 @@ void CarController::searchCar(Storage &storage) {
         std::cout << "No cars found" << std::endl;
     }
     else {
-        for (auto &newCar : cars) {
-            std::cout << "Registration number: " << newCar.regNo <<", Car model: " << newCar.carModel << ", number of seats: " << newCar.seats<< ", Gearbox type: " << newCar.gearbox << ", Daily rental cost: "<< newCar.dailyRentalCost << std::endl;
+        for (const auto& car : cars) {
+            std::cout << "Registration number: " << car.regNo <<", Car model: " << car.carModel << ", number of seats: " << car.seats<< ", Gearbox type: " << car.gearbox << ", Daily rental cost: "<< car.dailyRentalCost << std::endl;
         }
     }
 }
-
 
 void CarController::numberOfCars(Storage &storage) {
     auto carcount = storage.count<Car>();
