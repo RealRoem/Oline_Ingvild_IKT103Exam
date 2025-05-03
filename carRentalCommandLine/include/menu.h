@@ -4,11 +4,11 @@
 
 void printMenu();
 int getUserInput();
-static void showStaticsMenu(Storage &storage);
-static void showCarMenu(Storage &storage);
-static void showCustomerMenu(Storage &storage);
-static void showRentalMenu(Storage &storage);
-static void ImportExportMenu(Storage &storage);
+void showStatisticsMenu(Storage &storage);
+void showCarMenu(Storage &storage);
+void showCustomerMenu(Storage &storage);
+void showRentalMenu(Storage &storage);
+void ImportExportMenu(Storage &storage);
 
 
 #endif //MENU_H

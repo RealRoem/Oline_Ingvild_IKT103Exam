@@ -24,59 +24,18 @@ int main()
     printMenu();
 
     switch (getUserInput()) {
-        case 1: CarController::addCar(storage);
+        case 1: showCarMenu(storage);
        break;
-        case 2: CarController::editCar(storage);
-       break; /*
-       if (!CarController::existsCar(storage, carId)) {
-         std::cout << "Car does not exist" << std::endl;
-       }
-       break; */
-      case 3: CarController::removeCar(storage);
+        case 2: showCustomerMenu(storage);
+       break;
+      case 3: showRentalMenu(storage);
         break;
-      case 4: CustomerController::addCustomer(storage);
+      case 4: showStatisticsMenu(storage);
           break;
-      case 5: CustomerController::editCustomer(storage);
+      case 5: ImportExportMenu(storage);
           break;
-      case 6: CustomerController::deleteCustomer(storage);
-          break;
-      case 7: { // Assign car to customer
-          int carId, customerId;
-          std::cout << "Enter carID: ";
-          std::cin >> carId;
-          std::cout << "Enter customerID: ";
-          std::cin >> customerId;
-          RentalController::assignCarToCustomer(storage);
-          std::cout << "Car assigned" << std::endl;
-          break; }
-      case 8: { // Unassign car to customer
-          int carId, customerId;
-          std::cout << "Enter carID: ";
-          std::cin >> carId;
-          std::cout << "Enter customerID: ";
-          std::cin >> customerId;
-          RentalController::unassignCarToCustomer(storage);
-          std::cout << "Car removed" << std::endl;
-          break; }
-      // Show statistics:
-      case 9: {
-          CarController::numberOfCars(storage);
-          CustomerController::numberOfCustomers(storage);
-          RentalController::activeRentals(storage);
-          RentalController::completedRentals(storage);
-          break;
-        }
-        case 10: // Export all information to a file
-          break;
-        case 11: // Import all information to a file
-          break;
-        case 12:
-            return 0;
-      default:
-        std::cout << "Invalid Choice" << std::endl;
-      break;
+
     }
   }
     return 0;
 }
-

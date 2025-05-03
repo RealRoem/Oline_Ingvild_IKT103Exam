@@ -24,7 +24,15 @@ void showCarMenu(Storage &storage) {
     std::cout << " 2. Delete car\n";
     std::cout << " 3. View number of cars\n";
     std::cout << "=====================\n";
-    std::cin >> carManagement;
+
+    switch (getUserInput()) {
+        case 1: CarController::addCar(storage);
+        break;
+        case 2: CarController::editCar(storage);
+        break;
+        case 3: CarController::removeCar(storage);
+        break;
+    }
 }
 
 void showCustomerMenu(Storage &storage) {
@@ -35,7 +43,17 @@ void showCustomerMenu(Storage &storage) {
     std::cout << " 3. Delete customer\n";
     std::cout << " 4. View number of customers\n";
     std::cout << "=====================\n";
-    std::cin >> customerManagement;
+
+    switch (getUserInput()) {
+        case 1: CustomerController::addCustomer(storage);
+        break;
+        case 2: CustomerController::editCustomer(storage);
+        break;
+        case 3: CustomerController::deleteCustomer(storage);
+        break;
+        case 4: CustomerController::numberOfCustomers(storage);
+        break;
+    }
 }
 
 void showRentalMenu(Storage &storage) {
@@ -43,10 +61,20 @@ void showRentalMenu(Storage &storage) {
     std::cout << "\n=== Rental Management ===\n";
     std::cout << "1. Assign car to customer\n";
     std::cout << "2. Unassign car to customer\n";
-    std::cout << "Number of assigned cars\n";
-    std::cout << "Number of available cars\n";
+    std::cout << "3. Number of assigned cars\n";
+    std::cout << "4. Number of available cars\n";
     std::cout << "=====================\n";
-    std::cin >> rentalManagement;
+
+    switch (getUserInput()) {
+        case 1: RentalController::assignCarToCustomer(storage);
+        break;
+        case 2: RentalController::unassignCarToCustomer(storage);
+        break;
+        case 3: RentalController::activeRentals(storage);
+        break;
+        case 4: RentalController::completedRentals(storage);
+        break;
+    }
 }
 
 void showStatisticsMenu(Storage &storage) {
