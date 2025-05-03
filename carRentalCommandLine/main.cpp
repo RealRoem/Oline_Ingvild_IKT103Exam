@@ -30,7 +30,7 @@ int main()
        break;
       case 3: showRentalMenu(storage);
         break;
-      case 4: showStatisticsMenu(storage);
+      case 4: showAllStatistics(storage);
           break;
       case 5: ImportExportMenu(storage);
           break;
