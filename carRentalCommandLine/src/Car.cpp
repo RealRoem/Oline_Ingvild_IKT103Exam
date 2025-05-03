@@ -2,6 +2,8 @@
 #include "CarController.h"
 #include <iostream>
 #include "storage.h"
+#include <iomanip>
+
 
 
 void CarController::addCar(Storage &storage) {
@@ -90,33 +92,46 @@ void CarController::removeCar(Storage &storage) {
 }
 
 void CarController::printCarInfo(Storage &storage) {
-    auto cars = storage.get_all<Car>();
-    for (const auto& car : cars) {
-        std::cout << "---------------------------\n";
-        std::cout << "Registration number:         " << car.regNo << '\n';
-        std::cout << "Car model:                   " << car.carModel << '\n';
-        std::cout << "Seats:                       " << car.seats << '\n';
-        std::cout << "Gearbox:                     " << car.gearbox << '\n';
-        std::cout << "Daily rental cost:           " << car.dailyRentalCost << '\n';
-        std::cout << "---------------------------\n";
-    }
 }
+
+void printCarHeader() {
+    std::cout << "\n=========== Matching Cars ===========" << std::endl;
+    std::cout << std::left
+              << std::setw(18) << "Reg. Number"
+              << std::setw(15) << "Model"
+              << std::setw(10) << "Seats"
+              << std::setw(15) << "Gearbox"
+              << std::setw(12) << "Daily Cost"
+              << "\n" << std::string(70, '-') << "\n";
+}
+
+void printCarRow(const Car& car) {
+    std::cout << std::left
+              << std::setw(18) << car.regNo
+              << std::setw(15) << car.carModel
+              << std::setw(10) << car.seats
+              << std::setw(15) << car.gearbox
+              << std::setw(12) << car.dailyRentalCost
+              << "\n";
+}
+
 
 void CarController::searchCar(Storage &storage) {
     std::cout << "Search for car by gearbox type: " <<std::endl ;
-    std::string searchInput = searchInput + "%";
+    std::string searchInput;
     std::cin.ignore();
     std::getline (std::cin, searchInput);
-    auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchInput));
+    std::string searchCondition = searchInput + "%";
+    auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchCondition));
     auto cars = storage.get_all<Car>(whereCondition);
 
     if (cars.empty()) {
         std::cout << "No cars found" << std::endl;
     }
     else {
+        printCarHeader();
         for (const auto& car : cars) {
-            std::cout << "Registration number: " << car.regNo <<", Car model: " << car.carModel << ", number of seats: " << car.seats<< ", Gearbox type: " << car.gearbox << ", Daily rental cost: "<< car.dailyRentalCost << std::endl;
-        }
+            printCarRow(car);        }
     }
 }
 
