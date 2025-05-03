@@ -92,7 +92,7 @@ void CarController::removeCar(Storage &storage) {
 }
 
 void printCarHeader() {
-    std::cout << "\n=========== Matching Cars ===========" << std::endl;
+    std::cout << "\n================================ Cars ================================" << std::endl;
     std::cout << std::left
               << std::setw(18) << "Reg. Number"
               << std::setw(15) << "Model"
