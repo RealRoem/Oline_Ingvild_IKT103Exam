@@ -31,8 +31,8 @@ inline auto init_storage(const std::string &filename) {
                         make_column("startTime", &Rental::startTime),
                         make_column("status", &Rental::status),
                         primary_key(&Rental::regNo, &Rental::startTime),
-                        foreign_key(&Rental::customerId).references(&Customer::customerId),
-                        foreign_key(&Rental::regNo).references(&Car::regNo)
+                        foreign_key(&Rental::customerId).references(&Customer::customerId).on_delete.cascade(),
+                        foreign_key(&Rental::regNo).references(&Car::regNo).on_delete.cascade()
                         ));
     return storage;
 }

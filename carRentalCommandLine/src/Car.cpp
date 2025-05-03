@@ -3,7 +3,7 @@
 #include <iostream>
 #include "storage.h"
 #include <iomanip>
-
+#include <menu.h>
 
 
 void CarController::addCar(Storage &storage) {
@@ -91,11 +91,8 @@ void CarController::removeCar(Storage &storage) {
     } printCarInfo(storage);
 }
 
-void CarController::printCarInfo(Storage &storage) {
-}
-
 void printCarHeader() {
-    std::cout << "\n=========== Matching Cars ===========" << std::endl;
+    std::cout << "\n================================ Cars ================================" << std::endl;
     std::cout << std::left
               << std::setw(18) << "Reg. Number"
               << std::setw(15) << "Model"
@@ -115,25 +112,30 @@ void printCarRow(const Car& car) {
               << "\n";
 }
 
+void CarController::printCarInfo(Storage &storage) {
+    auto cars = storage.get_all<Car>();
+    printCarHeader();
+    for (const auto& car : cars) {
+        printCarRow(car);
+    }
+}
 
 void CarController::searchCar(Storage &storage) {
-    while (true) {
-        std::cout << "Search for car by gearbox type (a/m): " <<std::endl ;
-        std::string searchInput;
-        std::cin.ignore();
-        std::getline (std::cin, searchInput);
-        const std::string searchCondition = searchInput + "%";
-        auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchCondition));
-        auto cars = storage.get_all<Car>(whereCondition);
+    std::cout << "Search for car by gearbox type (a/m): " <<std::endl ;
+    std::string searchInput;
+    std::cin.ignore();
+    std::getline (std::cin, searchInput);
+    const std::string searchCondition = searchInput + "%";
+    auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchCondition));
+    auto cars = storage.get_all<Car>(whereCondition);
+    if (cars.empty()) {
+        std::cout << "No cars found" << std::endl;
+        showRentalMenu(storage);
+    }
+    else {
         printCarHeader();
-        if (!cars.empty()) {
-            for (const auto& car : cars) {
-                printCarRow(car);
-            }
-            break;
-        }
-        if (cars.empty())
-            std::cout << "No cars found matching '" << searchInput << " '. Please try again.\n" << std::endl;
+        for (const auto& car : cars) {
+            printCarRow(car);        }
     }
 }
 
