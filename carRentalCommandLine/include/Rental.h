@@ -7,7 +7,7 @@ public:
     int customerId;
     std::string regNo;
     std::string startTime;
-    std::string endTime;
+    bool status;
 };
 
 

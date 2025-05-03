@@ -11,29 +11,39 @@ void RentalController::assignCarToCustomer(Storage &storage) {
 }
 
 void RentalController::unassignCarToCustomer(Storage &storage) {
+    std::string regNo;
+    std::string startTime;
+    auto rental = storage.get<Rental>(std::make_tuple (regNo, startTime));
+    rental.status = false;
+    storage.update(rental);
 
+    std::cout << "Rental ended for customer ID " << rental.customerId << " with car "<< rental.regNo << std::endl;
 }
 
-void RentalController::activeRentals(Storage &storage) {}
+void RentalController::activeRentals(Storage &storage) {
+    auto activeRental = storage.count<Rental>(sqlite_orm::where(sqlite_orm::c(&Rental::status) == true));
+    std::cout << "Number of ative rentals: " << activeRental << std::endl;
+}
 
-void RentalController::completedRentals(Storage &storage) {}
+void RentalController::completedRentals(Storage &storage) {
+    auto completedRental = storage.count<Rental>(sqlite_orm::where(sqlite_orm::c(&Rental::status) == false));
+    std::cout << "Number of completed rentals: " << completedRental << std::endl;
+}
 
 Rental RentalController::getRentalInfo(Storage &storage) {
     int customerId;
     std::string regNo;
     std::string startTime;
-    std::string endTime;
 
     CustomerController::searchCustomer(storage);
-    std::cout << " enter customer ID to rental: " << std::endl;
+    std::cout << "Enter customer ID to rental: " << std::endl;
     std::cin >> customerId;
     CarController::searchCar(storage);
-    std::cout << " enter registration number to rental: " << std::endl;
+    std::cout << "Enter registration number to rental: " << std::endl;
     std::cin >> regNo;
-    std::cout << " enter starting time: " << std::endl;
+    std::cout << "Enter starting time: " << std::endl;
     std::cin >> startTime;
-    std::cout << " enter ending time: " << std::endl;
-    std::cin >> endTime;
 
-    return Rental{customerId, regNo, startTime, endTime};
+    return Rental{customerId, regNo, startTime, true};
 }
+
