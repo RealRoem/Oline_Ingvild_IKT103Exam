@@ -5,6 +5,7 @@
 #include <string>
 #include "Car.h"
 #include "Customer.h"
+#include "Rental.h"
 
 
 inline auto init_storage(const std::string &filename) {
@@ -23,6 +24,14 @@ inline auto init_storage(const std::string &filename) {
                         make_column("dateofBirth", &Customer::dateofBirth),
                         make_column("mail", &Customer::mail),
                         make_column("phonenumber", &Customer::phonenumber)
+                        ),
+        make_table("rental",
+                        make_column("regNo", &Rental::regNo, primary_key()),
+                        make_column("customerId", &Rental::customerId),
+                        make_column("startTime", &Rental::startTime), primary_key(),
+                        make_column("endTime", &Rental::endTime),
+                        foreign_key(&Rental::customerId, &Customer::customerId),
+                        foreign_key(&Rental::regNo, &Rental::regNo)
                         ));
     return storage;
 }
