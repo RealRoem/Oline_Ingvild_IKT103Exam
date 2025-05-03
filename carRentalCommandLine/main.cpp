@@ -13,7 +13,7 @@ namespace fs = std::filesystem;
 
 int main()
 {
-   //fs::remove("carRental.sqlite");
+   fs::remove("carRental.sqlite");
    //fs::copy_file("carRental.sqlite.bak", "carRental.sqlite");
 
   auto storage = init_storage("carRental.sqlite");
@@ -23,7 +23,8 @@ int main()
     printMenu();
 
     switch (getUserInput()) {
-      case 1: CarController::addCar(storage);
+        case 1: CarController::searchCar(storage);
+          //CarController::addCar(storage);
        break;
       case 2: CarController::editCar(storage);
        break; /*

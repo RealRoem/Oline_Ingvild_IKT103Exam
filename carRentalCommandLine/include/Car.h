@@ -9,8 +9,6 @@ public:
     int seats;
     std::string gearbox;
     int dailyRentalCost;
-    int customerId;
-
 
 };
 
