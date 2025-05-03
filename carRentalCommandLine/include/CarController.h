@@ -9,13 +9,13 @@ class CarController {
     Storage &m_storage; // Referanse til Storage-objektet
 
     static void addCar(Storage &storage);
-    static void editCar();
-    static bool existsCar();
-    static void removeCar();
+    static void editCar(Storage &storage);
+    static void removeCar(Storage &storage);
     static void assignCarToCustomer();
     static void unassignCarToCustomer();
 
     static Car getCarInfo();
+    static void printCarInfo(Storage &storage);
 };
 
 #endif //CARCONTROLLER_H
