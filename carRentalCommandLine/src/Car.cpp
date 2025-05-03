@@ -3,7 +3,7 @@
 #include <iostream>
 #include "storage.h"
 #include <iomanip>
-
+#include <menu.h>
 
 
 void CarController::addCar(Storage &storage) {
@@ -130,6 +130,7 @@ void CarController::searchCar(Storage &storage) {
     auto cars = storage.get_all<Car>(whereCondition);
     if (cars.empty()) {
         std::cout << "No cars found" << std::endl;
+        showRentalMenu(storage);
     }
     else {
         printCarHeader();
