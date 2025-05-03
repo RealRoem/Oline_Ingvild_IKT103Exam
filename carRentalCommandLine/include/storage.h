@@ -26,12 +26,13 @@ inline auto init_storage(const std::string &filename) {
                         make_column("phonenumber", &Customer::phonenumber)
                         ),
         make_table("rental",
-                        make_column("regNo", &Rental::regNo, primary_key()),
+                        make_column("regNo", &Rental::regNo),
                         make_column("customerId", &Rental::customerId),
-                        make_column("startTime", &Rental::startTime), primary_key(),
+                        make_column("startTime", &Rental::startTime),
                         make_column("endTime", &Rental::endTime),
-                        foreign_key(&Rental::customerId, &Customer::customerId),
-                        foreign_key(&Rental::regNo, &Rental::regNo)
+                        primary_key(&Rental::regNo, &Rental::startTime),
+                        foreign_key(&Rental::customerId).references(&Customer::customerId),
+                        foreign_key(&Rental::regNo).references(&Car::regNo)
                         ));
     return storage;
 }

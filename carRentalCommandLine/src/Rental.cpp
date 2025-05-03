@@ -1,36 +1,39 @@
-//
-// Created by oline on 03.05.2025.
-//
-#include <iostream>
 #include "Rental.h"
-#include "storage.h"
+#include <iostream>
+#include "RentalController.h"
+#include "CustomerController.h"
+#include "CarController.h"
 
-void showStatisticsMenu() {
-    int statisticsMenu;;
-    std::cout << "\n Statistics menu: \n";
-    std::cout << "1. Total number of customers\n";
-    std::cout << "2. Total number of cars\n";
-    std::cout << "3. Number of assigned cars\n";
-    std::cout << "4. Number of available cars\n";
-    std::cout << "Enter your choice: ";
-    std::cin >> statisticsMenu;
-
-    switch (statisticsMenu) {
-        case 1:
-            std::cout << "Total number of customers: ";
-            break;
-        case 2:
-            std::cout << "Total number of cars: ";
-            break;
-        case 3:
-            std::cout << "Number of assigned cars: ";
-            break;
-        case 4:
-            std::cout << "Number of available cars: ";
-            break;
-        default:
-            std::cout << "Invalid choice. Returning to main menu.\n";
-    }
+void RentalController::assignCarToCustomer(Storage &storage) {
+    Rental rental = getRentalInfo(storage);
+    storage.insert(rental);
+    std::cout << "Rental added" << std::endl;
 }
 
+void RentalController::unassignCarToCustomer(Storage &storage) {
 
+}
+
+void RentalController::activeRentals(Storage &storage) {}
+
+void RentalController::completedRentals(Storage &storage) {}
+
+Rental RentalController::getRentalInfo(Storage &storage) {
+    int customerId;
+    std::string regNo;
+    std::string startTime;
+    std::string endTime;
+
+    CustomerController::searchCustomer(storage);
+    std::cout << " enter customer ID to rental: " << std::endl;
+    std::cin >> customerId;
+    CarController::searchCar(storage);
+    std::cout << " enter registration number to rental: " << std::endl;
+    std::cin >> regNo;
+    std::cout << " enter starting time: " << std::endl;
+    std::cin >> startTime;
+    std::cout << " enter ending time: " << std::endl;
+    std::cin >> endTime;
+
+    return Rental{customerId, regNo, startTime, endTime};
+}

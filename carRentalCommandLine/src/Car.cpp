@@ -102,8 +102,27 @@ void CarController::printCarInfo(Storage &storage) {
     }
 }
 
-/*
-bool CarController::existsCar() {
+void CarController::searchCar(Storage &storage) {
+    Car newCar;
+    std::cout << "Search for car by gearbox type: " <<std::endl ;
+    std::string searchInput;
+    std::cin.ignore();
+    std::getline (std::cin, searchInput);
+    auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchInput));
+    auto cars = storage.get_all<Car>(whereCondition);
 
-} */
+    if (cars.empty()) {
+        std::cout << "No cars found" << std::endl;
+    }
+    else {
+        for (auto &newCar : cars) {
+            std::cout << "Registration number: " << newCar.regNo <<", Car model: " << newCar.carModel << ", number of seats: " << newCar.seats<< ", Gearbox type: " << newCar.gearbox << ", Daily rental cost: "<< newCar.dailyRentalCost << std::endl;
+        }
+    }
+}
 
+
+void CarController::numberOfCars(Storage &storage) {
+    auto carcount = storage.count<Car>();
+    std::cout << "Number of cas: " << carcount << std::endl;
+}
