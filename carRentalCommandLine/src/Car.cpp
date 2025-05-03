@@ -104,7 +104,7 @@ void CarController::printCarInfo(Storage &storage) {
 
 void CarController::searchCar(Storage &storage) {
     std::cout << "Search for car by gearbox type: " <<std::endl ;
-    std::string searchInput;
+    std::string searchInput = searchInput + "%";
     std::cin.ignore();
     std::getline (std::cin, searchInput);
     auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchInput));
