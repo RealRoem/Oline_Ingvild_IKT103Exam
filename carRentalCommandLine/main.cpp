@@ -8,6 +8,7 @@
 
 #include "CarController.h"
 #include "CustomerController.h"
+#include "Rental.h"
 
 namespace fs = std::filesystem;
 
@@ -24,54 +25,46 @@ int main()
 
     switch (getUserInput()) {
       case 1: CarController::addCar(storage);
-       break;
+      break;
       case 2: CarController::editCar(storage);
-       break; /*
-       if (!CarController::existsCar(storage, carId)) {
-         std::cout << "Car does not exist" << std::endl;
-       }
-       break; */
+      break; /*
+      if (!CarController::existsCar(storage, carId)) {
+        std::cout << "Car does not exist" << std::endl;
+      }
+      break; */
       case 3: CarController::removeCar(storage);
-        break;
+      break;
       case 4: CustomerController::addCustomer(storage);
-          break;
+      break;
       case 5: CustomerController::editCustomer(storage);
-          break;
+      break;
       case 6: CustomerController::deleteCustomer(storage);
-          break; /*
-      case 7: { // Assign car to customer
-          int carId, customerId;
-          std::cout << "Enter carID: ";
-          std::cin >> carId;
-          std::cout << "Enter customerID: ";
-          std::cin >> customerId;
-          CarController::assignCarToCustomer(storage, carId, customerId);
-          std::cout << "Car assigned" << std::endl;
-          break; }
-      case 8: { // Unassign car to customer
-          int carId, customerId;
-          std::cout << "Enter carID: ";
-          std::cin >> carId;
-          std::cout << "Enter customerID: ";
-          std::cin >> customerId;
-          CarController::unassignCarToCustomer(storage, carId, customerId);
-          std::cout << "Car removed" << std::endl;
-          break; }
-      // Show statistics:
-      case 9: {
-          CarController::numberOfCars();
-          std::cout << "Number of cars: " << CarController::numberOfCars() << std::endl;
-          CustomerController::numberOfCustomers(storage);
-          CarController::activeRentals();
-          std::cout << "Number of active rentals: " << CarController::activeRentals() << std::endl;
-          CarController::completedRentals();
-          std::cout << "Number of completed rentals: " << CarController::completedRentals() << std::endl;
-          break;
-        }
+      break; /*
+  case 7: { // Assign car to customer
+      int carId, customerId;
+      std::cout << "Enter carID: ";
+      std::cin >> carId;
+      std::cout << "Enter customerID: ";
+      std::cin >> customerId;
+      CarController::assignCarToCustomer(storage, carId, customerId);
+      std::cout << "Car assigned" << std::endl;
+      break; }
+  case 8: { // Unassign car to customer
+      int carId, customerId;
+      std::cout << "Enter carID: ";
+      std::cin >> carId;
+      std::cout << "Enter customerID: ";
+      std::cin >> customerId;
+      CarController::unassignCarToCustomer(storage, carId, customerId);
+      std::cout << "Car removed" << std::endl;
+      break; } */
+      case 9:
+        showStatisticsMenu();
+        break;
         case 10: // Export all information to a file
           break;
         case 11: // Import all information to a file
-          break; */
+          break;
         case 12:
             return 0;
       default:
