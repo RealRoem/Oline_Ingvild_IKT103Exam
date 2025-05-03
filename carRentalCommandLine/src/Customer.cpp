@@ -54,7 +54,7 @@ void CustomerController::searchCustomer(Storage &storage) {
     auto customers = storage.get_all<Customer>(whereCondition);
 
     if (customers.empty()) {
-        std::cout << "No students found" << std::endl;
+        std::cout << "Customer not found" << std::endl;
     }
     else {
         for (const auto &customer : customers) {

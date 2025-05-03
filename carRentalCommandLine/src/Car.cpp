@@ -117,14 +117,13 @@ void printCarRow(const Car& car) {
 
 
 void CarController::searchCar(Storage &storage) {
-    std::cout << "Search for car by gearbox type: " <<std::endl ;
+    std::cout << "Search for car by gearbox type (a/m): " <<std::endl ;
     std::string searchInput;
     std::cin.ignore();
     std::getline (std::cin, searchInput);
-    std::string searchCondition = searchInput + "%";
+    const std::string searchCondition = searchInput + "%";
     auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Car::gearbox, searchCondition));
     auto cars = storage.get_all<Car>(whereCondition);
-
     if (cars.empty()) {
         std::cout << "No cars found" << std::endl;
     }

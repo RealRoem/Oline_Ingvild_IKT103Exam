@@ -34,7 +34,8 @@ int main()
           break;
       case 5: ImportExportMenu(storage);
           break;
-
+        case 6: return 0;
+        default: std::cout << "Invalid choice";
     }
   }
     return 0;

@@ -6,7 +6,7 @@
 
 void RentalController::assignCarToCustomer(Storage &storage) {
     Rental rental = getRentalInfo(storage);
-    storage.insert(rental);
+    storage.replace(rental);
     std::cout << "Rental added" << std::endl;
 }
 
@@ -38,11 +38,14 @@ Rental RentalController::getRentalInfo(Storage &storage) {
     CustomerController::searchCustomer(storage);
     std::cout << "Enter customer ID to rental: " << std::endl;
     std::cin >> customerId;
+
     CarController::searchCar(storage);
     std::cout << "Enter registration number to rental: " << std::endl;
     std::cin >> regNo;
     std::cout << "Enter starting time: " << std::endl;
     std::cin >> startTime;
+
+    std::cin.ignore();
 
     return Rental{customerId, regNo, startTime, true};
 }
