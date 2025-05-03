@@ -31,7 +31,4 @@ Car CarController::getCarInfo() {
 
     return Car{regNo, carModel, seats, gearbox, dailyRentalCost};
 }
-/*
-bool CarController::existsCar() {
 
-} */
