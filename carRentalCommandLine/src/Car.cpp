@@ -91,9 +91,6 @@ void CarController::removeCar(Storage &storage) {
     } printCarInfo(storage);
 }
 
-void CarController::printCarInfo(Storage &storage) {
-}
-
 void printCarHeader() {
     std::cout << "\n=========== Matching Cars ===========" << std::endl;
     std::cout << std::left
@@ -115,6 +112,13 @@ void printCarRow(const Car& car) {
               << "\n";
 }
 
+void CarController::printCarInfo(Storage &storage) {
+    auto cars = storage.get_all<Car>();
+    printCarHeader();
+    for (const auto& car : cars) {
+        printCarRow(car);
+    }
+}
 
 void CarController::searchCar(Storage &storage) {
     std::cout << "Search for car by gearbox type (a/m): " <<std::endl ;
