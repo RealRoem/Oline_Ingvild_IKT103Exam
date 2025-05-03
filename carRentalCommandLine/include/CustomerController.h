@@ -6,7 +6,7 @@
 
 class CustomerController {
     public:
-    Storage &m_storage; // Referanse til Storage-objektet
+    //Storage &m_storage; // Referanse til Storage-objektet
 
     static void addCustomer(Storage &storage);
     static void editCustomer(Storage &storage);

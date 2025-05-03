@@ -6,7 +6,7 @@
 
 class CarController {
   public:
-    Storage &m_storage; // Referanse til Storage-objektet
+    //Storage &m_storage; // Referanse til Storage-objektet
 
     static void addCar(Storage &storage);
     static void editCar(Storage &storage);
