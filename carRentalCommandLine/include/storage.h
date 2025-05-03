@@ -29,7 +29,7 @@ inline auto init_storage(const std::string &filename) {
                         make_column("regNo", &Rental::regNo),
                         make_column("customerId", &Rental::customerId),
                         make_column("startTime", &Rental::startTime),
-                        make_column("endTime", &Rental::endTime),
+                        make_column("status", &Rental::status),
                         primary_key(&Rental::regNo, &Rental::startTime),
                         foreign_key(&Rental::customerId).references(&Customer::customerId),
                         foreign_key(&Rental::regNo).references(&Car::regNo)

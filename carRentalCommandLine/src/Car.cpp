@@ -124,5 +124,5 @@ void CarController::searchCar(Storage &storage) {
 
 void CarController::numberOfCars(Storage &storage) {
     auto carcount = storage.count<Car>();
-    std::cout << "Number of cas: " << carcount << std::endl;
+    std::cout << "Number of cars: " << carcount << std::endl;
 }
