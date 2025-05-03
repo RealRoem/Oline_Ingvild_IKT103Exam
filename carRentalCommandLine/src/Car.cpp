@@ -102,8 +102,3 @@ void CarController::printCarInfo(Storage &storage) {
     }
 }
 
-/*
-bool CarController::existsCar() {
-
-} */
-
