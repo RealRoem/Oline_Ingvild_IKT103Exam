@@ -61,8 +61,7 @@ int main()
       case 9: {
           CarController::numberOfCars();
           std::cout << "Number of cars: " << CarController::numberOfCars() << std::endl;
-          Customer::numberOfCustomers();
-          std::cout << "Number of customers: " << Customer::numberOfCustomers() << std::endl;
+          CustomerController::numberOfCustomers(storage);
           CarController::activeRentals();
           std::cout << "Number of active rentals: " << CarController::activeRentals() << std::endl;
           CarController::completedRentals();
@@ -73,7 +72,6 @@ int main()
           break;
         case 11: // Import all information to a file
           break; */
-        case 9: CustomerController::numberOfCustomers(storage);
         case 12:
             return 0;
       default:
