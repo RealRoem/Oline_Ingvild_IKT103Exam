@@ -2,6 +2,7 @@
 #include "CustomerController.h"
 #include <iostream>
 #include "storage.h"
+#include <iomanip>
 
 
 
@@ -44,6 +45,26 @@ void CustomerController::deleteCustomer(Storage &storage) {
 
     printCustomerInfo(storage);
 }
+void printCustomerHeader() {
+    std::cout << "\n===================================== Customers =====================================" << std::endl;
+    std::cout << std::left
+              << std::setw(6)  << "ID"
+              << std::setw(20) << "Name"
+              << std::setw(15) << "Date of birth"
+              << std::setw(30) << "Email"
+              << std::setw(15) << "Phone"
+              << "\n" << std::string(86, '-') << "\n";
+}
+
+void printCustomerRow(const Customer &customer) {
+    std::cout << std::left
+              << std::setw(6)  << customer.customerId
+              << std::setw(20) << customer.customerName
+              << std::setw(15) << customer.dateofBirth
+              << std::setw(30) << customer.mail
+              << std::setw(15) << customer.phonenumber
+              << "\n";
+}
 
 void CustomerController::searchCustomer(Storage &storage) {
     std::cout << "Search for customer by name: " <<std::endl ;
@@ -57,11 +78,13 @@ void CustomerController::searchCustomer(Storage &storage) {
         std::cout << "Customer not found" << std::endl;
     }
     else {
+        printCustomerHeader();
         for (const auto &customer : customers) {
-            std::cout << "id: " << customer.customerId <<", name: " << customer.customerName << ", date of birth: " << customer.dateofBirth<< ", email: " << customer.mail << ", phone number: "<< customer.phonenumber << std::endl;
+            printCustomerRow(customer);
         }
     }
 }
+
 
 void CustomerController::numberOfCustomers(Storage &storage) {
     auto customercount = storage.count<Customer>();
