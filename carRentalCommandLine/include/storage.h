@@ -7,8 +7,9 @@
 #include "Customer.h"
 #include "Rental.h"
 
+using namespace std;
 
-inline auto init_storage(const std::string &filename) {
+inline auto init_storage(const string &filename) {
     using namespace sqlite_orm;
     auto storage = make_storage(filename,
         make_table("car",

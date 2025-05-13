@@ -4,78 +4,80 @@
 #include "storage.h"
 #include <iomanip>
 
-
+using namespace std;
 
 void CustomerController::addCustomer(Storage &storage) {
     Customer customer = getCustomerInfo(); //henter informasjon om kunden fra brukerinput
     storage.insert (customer); //legger til kunden i databasen
-    std::cout << "Customer added" << std::endl;
+    cout << "Customer added" << endl;
 
     printCustomerInfo(storage);
 }
 
 void CustomerController::editCustomer(Storage &storage) {
+    printCustomerInfo(storage);
     int inputId;
-    std::cout << "Enter customer id to edit: " << std::endl;
-    std::cin >> inputId;
+    cout << "Enter customer id to edit: " << endl;
+    cin >> inputId;
     auto customer = storage.get_pointer<Customer>(inputId); //returnerer en nullptr hvis id ikke finnes, slik at if(customer) blir false
     if(customer) {
         Customer updated = getCustomerInfo();
         updated.customerId = inputId;
         storage.update(updated);
-        std::cout << "Customer edited successfully" << std::endl;
+        cout << "Customer edited successfully" << std::endl;
     } else {
-        std::cout << "Customer not found" << std::endl;
+        cout << "Customer not found" << endl;
     }
 
     printCustomerInfo(storage);
 }
 
 void CustomerController::deleteCustomer(Storage &storage) {
+    printCustomerInfo(storage);
     int inputId;
-    std::cout << "Enter customer id to delete: " << std::endl;
-    std::cin >> inputId;
+    cout << "Enter customer id to delete: " << endl;
+    cin >> inputId;
     auto customer = storage.get_pointer<Customer>(inputId); //returnerer en nullptr hvis id ikke finnes, slik at if(customer) blir false
     if(customer) {
         storage.remove<Customer>(inputId);
-        std::cout << "Customer deleted successfully" << std::endl;
+        cout << "Customer deleted successfully" << endl;
     } else {
-        std::cout << "Customer not found" << std::endl;
+        cout << "Customer not found" << endl;
     }
 
     printCustomerInfo(storage);
 }
 void printCustomerHeader() {
-    std::cout << "\n===================================== Customers =====================================" << std::endl;
-    std::cout << std::left
-              << std::setw(6)  << "ID"
-              << std::setw(20) << "Name"
-              << std::setw(15) << "Date of birth"
-              << std::setw(30) << "Email"
-              << std::setw(15) << "Phone"
-              << "\n" << std::string(86, '-') << "\n";
+    cout << "\n===================================== Customers =====================================" << std::endl;
+    cout << left
+              << setw(6)  << "ID"
+              << setw(20) << "Name"
+              << setw(15) << "Date of birth"
+              << setw(30) << "Email"
+              << setw(15) << "Phone"
+              << "\n" << string(86, '-') << "\n";
 }
 
 void printCustomerRow(const Customer &customer) {
-    std::cout << std::left
-              << std::setw(6)  << customer.customerId
-              << std::setw(20) << customer.customerName
-              << std::setw(15) << customer.dateofBirth
-              << std::setw(30) << customer.mail
-              << std::setw(15) << customer.phonenumber
+    cout << left
+              << setw(6)  << customer.customerId
+              << setw(20) << customer.customerName
+              << setw(15) << customer.dateofBirth
+              << setw(30) << customer.mail
+              << setw(15) << customer.phonenumber
               << "\n";
 }
 
 void CustomerController::searchCustomer(Storage &storage) {
-    std::cout << "Search for customer by name: " <<std::endl ;
-    std::string searchInput;
-    std::cin.ignore();
-    std::getline (std::cin, searchInput);
+    cout << "Search for customer by name: " << endl ;
+    string searchInput;
+    cin.ignore();
+    getline (cin, searchInput);
     auto whereCondition = sqlite_orm::where(sqlite_orm::like(&Customer::customerName, searchInput));
     auto customers = storage.get_all<Customer>(whereCondition);
 
     if (customers.empty()) {
-        std::cout << "Customer not found" << std::endl;
+        cout << "Customer not found" << endl;
     }
     else {
         printCustomerHeader();
@@ -88,24 +90,24 @@ void CustomerController::searchCustomer(Storage &storage) {
 
 void CustomerController::numberOfCustomers(Storage &storage) {
     auto customercount = storage.count<Customer>();
-    std::cout << "Number of customers: " << customercount << std::endl;
+    cout << "Number of customers: " << customercount << endl;
 }
 
 Customer CustomerController::getCustomerInfo() {
-    std::string customerName;
-    std::string dateofBirth;
-    std::string mail;
-    std::string phonenumber;
+    string customerName;
+    string dateofBirth;
+    string mail;
+    string phonenumber;
 
-    std::cout << "Enter customer name: " << std::endl;
-    std::cin.ignore();
-    std::getline(std::cin, customerName);
-    std::cout << "Enter customers date of birth: " << std::endl;
-    std::cin >> dateofBirth;
-    std::cout << "Enter customers mail: " << std::endl;
-    std::cin >> mail;
-    std::cout << "Enter customers phonenumber: " << std::endl;
-    std::cin >> phonenumber;
+    cout << "Enter customer name: " << endl;
+    cin.ignore();
+    getline(std::cin, customerName);
+    cout << "Enter customers date of birth: " << endl;
+    cin >> dateofBirth;
+    cout << "Enter customers mail: " << endl;
+    cin >> mail;
+    cout << "Enter customers phonenumber: " << endl;
+    cin >> phonenumber;
 
     return Customer{-1, customerName, dateofBirth, mail, phonenumber};
 }
@@ -113,13 +115,13 @@ Customer CustomerController::getCustomerInfo() {
 void CustomerController::printCustomerInfo(Storage &storage) {
     auto customers = storage.get_all<Customer>();
     for (const auto& [customerId, customerName, dateofBirth, mail, phonenumber] : customers) {
-        std::cout << "---------------------------\n";
-        std::cout << "ID:           " << customerId    << '\n';
-        std::cout << "Name:         " << customerName  << '\n';
-        std::cout << "Birthdate:    " << dateofBirth   << '\n';
-        std::cout << "Email:        " << mail          << '\n';
-        std::cout << "Phone number: " << phonenumber   << '\n';
-        std::cout << "---------------------------\n";
+        cout << "---------------------------\n";
+        cout << "ID:           " << customerId    << '\n';
+        cout << "Name:         " << customerName  << '\n';
+        cout << "Birthdate:    " << dateofBirth   << '\n';
+        cout << "Email:        " << mail          << '\n';
+        cout << "Phone number: " << phonenumber   << '\n';
+        cout << "---------------------------\n";
     }
 
 }

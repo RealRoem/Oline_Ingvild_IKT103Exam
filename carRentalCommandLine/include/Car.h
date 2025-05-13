@@ -2,12 +2,14 @@
 #define CAR_H
 #include <string>
 
+using namespace std;
+
 class Car {
 public:
-    std::string regNo;
-    std::string carModel;
+    string regNo;
+    string carModel;
     int seats;
-    std::string gearbox;
+    string gearbox;
     int dailyRentalCost;
 
 };

@@ -1,0 +1,102 @@
+{
+  "cars": [
+    {
+      "regNo": "ABC123",
+      "carModel": "Toyota Camry",
+      "seats": 5,
+      "gearbox": "Automatic",
+      "dailyRentalCost": 50
+    },
+    {
+      "regNo": "XYZ789",
+      "carModel": "Honda Civic",
+      "seats": 5,
+      "gearbox": "Manual",
+      "dailyRentalCost": 40
+    },
+    {
+      "regNo": "KLM456",
+      "carModel": "BMW X5",
+      "seats": 7,
+      "gearbox": "Automatic",
+      "dailyRentalCost": 120
+    },
+    {
+      "regNo": "DEF321",
+      "carModel": "Volkswagen Golf",
+      "seats": 5,
+      "gearbox": "Manual",
+      "dailyRentalCost": 35
+    },
+    {
+      "regNo": "GHI654",
+      "carModel": "Tesla Model 3",
+      "seats": 5,
+      "gearbox": "Automatic",
+      "dailyRentalCost": 90
+    }
+  ],
+  "customers": [
+    {
+      "customerId": 1,
+      "customerName": "John Doe",
+      "dateofBirth": "1990-01-15",
+      "mail": "john.doe@email.com",
+      "phonenumber": "+47 12345678"
+    },
+    {
+      "customerId": 2,
+      "customerName": "Jane Smith",
+      "dateofBirth": "1985-05-20",
+      "mail": "jane.smith@email.com",
+      "phonenumber": "+47 87654321"
+    },
+    {
+      "customerId": 3,
+      "customerName": "Erik Hansen",
+      "dateofBirth": "1992-08-10",
+      "mail": "erik.hansen@normail.no",
+      "phonenumber": "+47 55566677"
+    },
+    {
+      "customerId": 4,
+      "customerName": "Maria Olsen",
+      "dateofBirth": "1988-12-05",
+      "mail": "maria.olsen@email.no",
+      "phonenumber": "+47 98765432"
+    },
+    {
+      "customerId": 5,
+      "customerName": "Ole Nordmann",
+      "dateofBirth": "1975-03-22",
+      "mail": "ole.nordmann@norge.no",
+      "phonenumber": "+47 44455566"
+    }
+  ],
+  "rentals": [
+    {
+      "customerId": 1,
+      "regNo": "ABC123",
+      "startTime": "2025-05-10 10:00:00",
+      "status": true
+    },
+    {
+      "customerId": 2,
+      "regNo": "XYZ789",
+      "startTime": "2025-05-11 14:30:00",
+      "status": true
+    },
+    {
+      "customerId": 3,
+      "regNo": "KLM456",
+      "startTime": "2025-04-20 09:00:00",
+      "status": false
+    },
+    {
+      "customerId": 4,
+      "regNo": "DEF321",
+      "startTime": "2025-05-12 16:00:00",
+      "status": true
+    }
+  ]
+}

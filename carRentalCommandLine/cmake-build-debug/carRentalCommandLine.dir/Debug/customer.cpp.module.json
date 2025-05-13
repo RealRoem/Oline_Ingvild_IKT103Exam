@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "carRentalCommandLine.dir\\Debug\\Customer.obj",
+            "outputs": [
+                "C:\\Users\\sabin\\OneDrive\\Skrivebord\\lll\\Oline_Ingvild_IKT103Exam\\carRentalCommandLine\\cmake-build-debug\\carRentalCommandLine.dir\\Debug\\vc143.pdb",
+                "carRentalCommandLine.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}

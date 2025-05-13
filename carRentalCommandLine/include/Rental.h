@@ -2,11 +2,13 @@
 #define RENTAL_H
 #include <string>
 
+using namespace std;
+
 class Rental {
 public:
     int customerId;
-    std::string regNo;
-    std::string startTime;
+    string regNo;
+    string startTime;
     bool status;
 };
 

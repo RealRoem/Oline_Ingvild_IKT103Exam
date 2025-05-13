@@ -2,14 +2,15 @@
 #define CUSTOMER_H
 #include <string>
 
+using namespace std;
 
 class Customer {
 public:
     int customerId;
-    std::string customerName;
-    std::string dateofBirth;
-    std::string mail;
-    std::string phonenumber;
+    string customerName;
+    string dateofBirth;
+    string mail;
+    string phonenumber;
 
 };
 
