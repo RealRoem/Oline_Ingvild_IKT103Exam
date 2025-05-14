@@ -1,0 +1,3 @@
+C:/Users/ingvi/ikt103_eksamen/Oline_Ingvild_IKT103Exam/carRentalCommandLine/cmake-build-debug/CMakeFiles/carRentalCommandLine.dir
+C:/Users/ingvi/ikt103_eksamen/Oline_Ingvild_IKT103Exam/carRentalCommandLine/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ingvi/ikt103_eksamen/Oline_Ingvild_IKT103Exam/carRentalCommandLine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

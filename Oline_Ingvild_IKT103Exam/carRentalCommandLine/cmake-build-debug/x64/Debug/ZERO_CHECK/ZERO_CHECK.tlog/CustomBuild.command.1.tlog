@@ -1,0 +1,10 @@
+^C:\USERS\SABIN\ONEDRIVE\SKRIVEBORD\LLL\OLINE_INGVILD_IKT103EXAM\CARRENTALCOMMANDLINE\CMAKE-BUILD-DEBUG\CMAKEFILES\DE16AE972DC1F9809DC00B71F673637A\GENERATE.STAMP.RULE
+setlocal
+C:\Users\sabin\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -SC:/Users/sabin/OneDrive/Skrivebord/lll/Oline_Ingvild_IKT103Exam/carRentalCommandLine -BC:/Users/sabin/OneDrive/Skrivebord/lll/Oline_Ingvild_IKT103Exam/carRentalCommandLine/cmake-build-debug --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/sabin/OneDrive/Skrivebord/lll/Oline_Ingvild_IKT103Exam/carRentalCommandLine/cmake-build-debug/carRentalCommandLine.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

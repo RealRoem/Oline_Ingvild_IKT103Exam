@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\src\Car.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\src\Customer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\src\ImportExportController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\src\Rental.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\src\menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\sqlite3\sqlite3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\Car.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\CarController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\Customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\CustomerController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\ImportExportController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\Rental.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\RentalController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\sqlite_orm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\include\storage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\sabin\OneDrive\Skrivebord\lll\Oline_Ingvild_IKT103Exam\carRentalCommandLine\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AFACD85A-D5A3-3773-A201-AD062782FD13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ACA11B9A-F585-3204-88C8-E36F199EEC9B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

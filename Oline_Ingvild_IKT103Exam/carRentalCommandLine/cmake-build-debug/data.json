@@ -1,0 +1,73 @@
+{
+  "cars": [
+    {
+      "regNo": "AB12345",
+      "carModel": "tesla",
+      "seats": 5,
+      "gearbox": "automat",
+      "dailyRentalCost": 500
+    },
+    {
+      "regNo": "CV12345",
+      "carModel": "volvo",
+      "seats": 5,
+      "gearbox": "manuell",
+      "dailyRentalCost": 300
+    },
+    {
+      "regNo": "CD54321",
+      "carModel": "Volvo",
+      "seats": 5,
+      "gearbox": "maunell",
+      "dailyRentalCost": 300
+    }
+  ],
+  "customers": [
+    {
+      "customerId": 1,
+      "customerName": "Per Andersen",
+      "dateofBirth": "12.05.87",
+      "mail": "Per@gmail.com",
+      "phonenumber": "12345678"
+    },
+    {
+      "customerId": 2,
+      "customerName": "Pia Knutsen",
+      "dateofBirth": "30.01.1999",
+      "mail": "Pia@uia.no",
+      "phonenumber": "22334455"
+    }
+  ],
+  "rentals": [
+    {
+      "customerId": 2,
+      "regNo": "AB12345",
+      "startTime": "2025-05-14 10:11:35.853",
+      "status": false
+    },
+    {
+      "customerId": 1,
+      "regNo": "CD54321",
+      "startTime": "2025-05-14 10:12:15.401",
+      "status": false
+    },
+    {
+      "customerId": 2,
+      "regNo": "CV12345",
+      "startTime": "2025-05-14 10:17",
+      "status": false
+    },
+    {
+      "customerId": 2,
+      "regNo": "AB12345",
+      "startTime": "2025-05-14 10:34",
+      "status": false
+    },
+    {
+      "customerId": 1,
+      "regNo": "CV12345",
+      "startTime": "2025-05-14 10:35",
+      "status": true
+    }
+  ]
+}
